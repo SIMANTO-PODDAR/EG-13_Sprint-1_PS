@@ -36,8 +36,24 @@ function findGCD(a, b) {
 
 
 
-console.log('6', findGCD(48, 18));
-console.log('4', findGCD(20, 8));
-console.log('5', findGCD(15, 10));
-console.log('1', findGCD(17, 5));
-console.log('25', findGCD(100, 25)); 
+function findLCM(a, b) {
+    const inputA = a;
+    const inputB = b;
+
+    for ( ; b !== 0; ) {
+        const remainder = a % b;
+
+        a = b;
+        b = remainder;
+    }
+
+    return (inputA * inputB) / a;
+}
+
+
+
+console.log('36', findLCM(12, 18));
+console.log('24', findLCM(8, 12));
+console.log('30', findLCM(15, 10));
+console.log('85', findLCM(17, 5));
+console.log('100', findLCM(100, 25));
