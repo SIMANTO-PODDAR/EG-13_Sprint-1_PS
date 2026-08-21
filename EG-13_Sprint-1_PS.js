@@ -23,8 +23,21 @@ function generateFibonacci(n) {
 
 
 
-console.log('0', generateFibonacci(0))
-console.log('1', generateFibonacci(1))
-console.log('3', generateFibonacci(3))
-console.log('7', generateFibonacci(7))
-console.log('8', generateFibonacci(8))
+function findGCD(a, b) {
+    for ( ; b !== 0; ) {
+        const remainder = a % b;
+
+        a = b;
+        b = remainder;
+    }
+
+    return a;
+}
+
+
+
+console.log('6', findGCD(48, 18));
+console.log('4', findGCD(20, 8));
+console.log('5', findGCD(15, 10));
+console.log('1', findGCD(17, 5));
+console.log('25', findGCD(100, 25)); 
