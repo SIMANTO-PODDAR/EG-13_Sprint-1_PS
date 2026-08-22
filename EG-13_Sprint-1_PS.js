@@ -134,8 +134,37 @@ function findSecondLargest(nums) {
 
 
 
-console.log('45', findSecondLargest([10, 20, 4, 45, 99, 99]));
-console.log('null', findSecondLargest([5, 5, 5]));
-console.log('10', findSecondLargest([10, 20]));
-console.log('7', findSecondLargest([7, 3, 9, 1, 5]));
-console.log('-10 ', findSecondLargest([-10, -5, -20]));       
+function findMode(arr) {
+    // Todo 
+}
+
+
+
+function naturalSort(arr) {
+    return arr.sort((a, b) => {
+        return a.localeCompare(b, undefined, { numeric: true });
+    });
+}
+
+
+
+console.log(
+    ["file1.txt", "file10.txt", "file2.txt"],
+    naturalSort(["file1.txt", "file10.txt", "file2.txt"])
+);
+console.log(
+    ["item10", "item2", "item1"],
+    naturalSort(["item10", "item2", "item1"])
+);
+console.log(
+    ["photo20.jpg", "photo3.jpg", "photo11.jpg"],
+    naturalSort(["photo20.jpg", "photo3.jpg", "photo11.jpg"])
+);
+console.log(
+    ["chapter10", "chapter2", "chapter1"],
+    naturalSort(["chapter10", "chapter2", "chapter1"])
+);
+console.log(
+    ["test100", "test9", "test25", "test3"],
+    naturalSort(["test100", "test9", "test25", "test3"])
+);
