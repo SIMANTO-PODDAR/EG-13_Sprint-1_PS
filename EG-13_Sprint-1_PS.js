@@ -70,8 +70,38 @@ function isPrime(num) {
 
 
 
-console.log('true', isPrime(2));
-console.log('false', isPrime(9));
-console.log('true', isPrime(11));
-console.log('false', isPrime(21));
-console.log('true', isPrime(23));
+function mergeSortedArrays(arr1, arr2) {
+    const mrgArr = [];
+    let i = 0;
+    let j = 0;
+
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] <= arr2[j]) {
+            mrgArr.push(arr1[i]);
+            i++;
+        } else {
+            mrgArr.push(arr2[j]);
+            j++;
+        }
+    }
+
+    while (i < arr1.length) {
+        mrgArr.push(arr1[i]);
+        i++;
+    }
+
+    while (j < arr2.length) {
+        mrgArr.push(arr2[j]);
+        j++;
+    }
+
+    return mrgArr
+}
+
+
+
+console.log('[1, 2, 3, 4, 5, 6]', mergeSortedArrays([1, 3, 5], [2, 4, 6]));
+console.log('[1, 2, 3, 4, 5]', mergeSortedArrays([1, 2, 5], [3, 4]));
+console.log('[1, 2, 3, 4, 5, 6, 7]', mergeSortedArrays([1, 4, 6], [2, 3, 5, 7]));
+console.log('[2, 4, 6, 8]', mergeSortedArrays([], [2, 4, 6, 8]));
+console.log('[1, 2, 3, 4]', mergeSortedArrays([1, 2, 3, 4], []));
