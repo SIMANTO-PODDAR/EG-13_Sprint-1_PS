@@ -100,8 +100,21 @@ function mergeSortedArrays(arr1, arr2) {
 
 
 
-console.log('[1, 2, 3, 4, 5, 6]', mergeSortedArrays([1, 3, 5], [2, 4, 6]));
-console.log('[1, 2, 3, 4, 5]', mergeSortedArrays([1, 2, 5], [3, 4]));
-console.log('[1, 2, 3, 4, 5, 6, 7]', mergeSortedArrays([1, 4, 6], [2, 3, 5, 7]));
-console.log('[2, 4, 6, 8]', mergeSortedArrays([], [2, 4, 6, 8]));
-console.log('[1, 2, 3, 4]', mergeSortedArrays([1, 2, 3, 4], []));
+function findMedian(nums) {
+    const sorted = [...nums].sort((a, b) => a - b)
+    const median = Math.floor(sorted.length / 2)
+
+    if (sorted.length % 2 === 1) {
+        return sorted[median]
+    } else {
+        return (sorted[median - 1] + sorted[median]) / 2
+    }
+}
+
+
+
+console.log('4', findMedian([7, 1, 3, 4, 9]));
+console.log('5', findMedian([1, 3, 9, 7]));
+console.log('6', findMedian([10, 2, 8, 4, 6]));
+console.log('3.5', findMedian([1, 2, 5, 6]));
+console.log('5', findMedian([9, 3, 7, 1, 5]));
