@@ -113,8 +113,29 @@ function findMedian(nums) {
 
 
 
-console.log('4', findMedian([7, 1, 3, 4, 9]));
-console.log('5', findMedian([1, 3, 9, 7]));
-console.log('6', findMedian([10, 2, 8, 4, 6]));
-console.log('3.5', findMedian([1, 2, 5, 6]));
-console.log('5', findMedian([9, 3, 7, 1, 5]));
+function findSecondLargest(nums) {
+    let firstLargest = null
+    let secondLargest = null
+
+    for (const num of nums) {
+        if (firstLargest === null || num > firstLargest) {
+            secondLargest = firstLargest
+            firstLargest = num
+        }
+        else if (
+            num !== firstLargest &&
+            (secondLargest === null || num > secondLargest)
+        ) {
+            secondLargest = num
+        }
+    }
+    return secondLargest;
+}
+
+
+
+console.log('45', findSecondLargest([10, 20, 4, 45, 99, 99]));
+console.log('null', findSecondLargest([5, 5, 5]));
+console.log('10', findSecondLargest([10, 20]));
+console.log('7', findSecondLargest([7, 3, 9, 1, 5]));
+console.log('-10 ', findSecondLargest([-10, -5, -20]));       
