@@ -24,7 +24,7 @@ function generateFibonacci(n) {
 
 
 function findGCD(a, b) {
-    for ( ; b !== 0; ) {
+    for (; b !== 0;) {
         const remainder = a % b;
 
         a = b;
@@ -40,7 +40,7 @@ function findLCM(a, b) {
     const inputA = a;
     const inputB = b;
 
-    for ( ; b !== 0; ) {
+    for (; b !== 0;) {
         const remainder = a % b;
 
         a = b;
@@ -52,8 +52,26 @@ function findLCM(a, b) {
 
 
 
-console.log('36', findLCM(12, 18));
-console.log('24', findLCM(8, 12));
-console.log('30', findLCM(15, 10));
-console.log('85', findLCM(17, 5));
-console.log('100', findLCM(100, 25));
+function isPrime(num) {
+    if (num <= 1) return false;
+    if (num === 2) return true;
+    if (num % 2 === 0) return false;
+
+    const numsqrt = Math.sqrt(num);
+
+    for (let i = 3; i <= numsqrt; i += 2) {
+        if (num % i === 0) {
+            return false
+        }
+    }
+
+    return true;
+}
+
+
+
+console.log('true', isPrime(2));
+console.log('false', isPrime(9));
+console.log('true', isPrime(11));
+console.log('false', isPrime(21));
+console.log('true', isPrime(23));
