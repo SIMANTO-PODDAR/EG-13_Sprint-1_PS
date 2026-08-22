@@ -135,7 +135,26 @@ function findSecondLargest(nums) {
 
 
 function findMode(arr) {
-    // Todo 
+    const srtarr = [...arr].sort((a, b) => a - b);
+
+    let mode = srtarr[0];
+    let maxCount = 1;
+    let count = 1;
+
+    for (let i = 1; i < srtarr.length; i++) {
+        if (srtarr[i] === srtarr[i - 1]) {
+            count++;
+        } else {
+            count = 1;
+        }
+
+        if (count > maxCount) {
+            maxCount = count;
+            mode = srtarr[i];
+        }
+    }
+
+    return mode;
 }
 
 
@@ -145,26 +164,3 @@ function naturalSort(arr) {
         return a.localeCompare(b, undefined, { numeric: true });
     });
 }
-
-
-
-console.log(
-    ["file1.txt", "file10.txt", "file2.txt"],
-    naturalSort(["file1.txt", "file10.txt", "file2.txt"])
-);
-console.log(
-    ["item10", "item2", "item1"],
-    naturalSort(["item10", "item2", "item1"])
-);
-console.log(
-    ["photo20.jpg", "photo3.jpg", "photo11.jpg"],
-    naturalSort(["photo20.jpg", "photo3.jpg", "photo11.jpg"])
-);
-console.log(
-    ["chapter10", "chapter2", "chapter1"],
-    naturalSort(["chapter10", "chapter2", "chapter1"])
-);
-console.log(
-    ["test100", "test9", "test25", "test3"],
-    naturalSort(["test100", "test9", "test25", "test3"])
-);
